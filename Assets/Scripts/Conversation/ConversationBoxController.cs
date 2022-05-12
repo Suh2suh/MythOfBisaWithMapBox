@@ -51,20 +51,6 @@ public class ConversationBoxController : MonoBehaviour
         //캐릭터의 혼잣말 삽입 시, 직전 이벤트가 클리어됐는지 확인하고 알맞은 대화창 띄워야 함
     }
     
-    private void OnDisable()
-    {
-        if (IsNewQuest)
-        {
-            //아래 두 코드의 순서가 바뀌어선 안됨 (버튼 활성화 -> 퀘스트박스 활성화)
-            QuestGenerator.GetComponent<QuestBtnGenerator>().ActiveQuestBtn();
-            QuestGenerator.GetComponent<QuestBoxGenerator>().OpenQuestBox();
-        }
-        else
-		{
-            QuestGenerator.GetComponent<QuestBtnGenerator>().UnactiveQuestBtn();
-        }
-    }
-    
     private void InitPage()
     {
         GameData.CurrentPageNum++;
@@ -125,13 +111,6 @@ public class ConversationBoxController : MonoBehaviour
     {
         return (kor_Dialog[GameData.CurrentPageNum]["PageNum"].ToString() != "" && kor_Dialog[GameData.CurrentPageNum]["PageNum"].ToString() != null);
     }
-
-    void CloseConversationBox()
-    {
-        ConversationCanvas.SetActive(false);
-        ConversationCam.SetActive(false);
-    }
-
 
     void ChangeTextApplyingPlayerName()
     {
@@ -282,5 +261,78 @@ public class ConversationBoxController : MonoBehaviour
     void OpenSelectEventPanel()
     {
         SelectEventPanel.SetActive(true);
+    }
+
+
+
+    //Skip and Close
+    void CloseConversationBox()
+    {
+        ConversationCanvas.SetActive(false);
+        ConversationCam.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        CheckQuestAndOpen();
+    }
+
+    void CheckQuestAndOpen()
+	{
+        if (IsNewQuest)
+        {
+            //아래 두 코드의 순서가 바뀌어선 안됨 (버튼 활성화 -> 퀘스트박스 활성화)
+            QuestGenerator.GetComponent<QuestBtnGenerator>().ActiveQuestBtn();
+            QuestGenerator.GetComponent<QuestBoxGenerator>().OpenQuestBox();
+        }
+        else
+        {
+            QuestGenerator.GetComponent<QuestBtnGenerator>().UnactiveQuestBtn();
+        }
+    }
+
+    public void skipDialogue()
+	{
+        IsNewQuest = true;
+
+        switch (GameData.CurrentEventNum)
+		{
+            case 1:
+                ConversationDataChange(2, 27, 1);
+                break;
+            case 2:
+                ConversationDataChange(3, 41, 2);
+                break;
+            case 3:
+                ConversationDataChange(4, 67, 3);
+                break;
+            case 4:
+                ConversationDataChange(5, 89, 4);
+                break;
+            case 5:
+                ConversationDataChange(6, 114, 5);
+                break;
+            case 6:
+                ConversationDataChange(7, 141, 6);
+                break;
+            case 7:
+                ConversationDataChange(8, 157, 7);
+                break;
+            case 8:
+                ConversationDataChange(9, 182, 8);
+                break;
+            case 9:
+                IsNewQuest = false;
+                break;
+        }
+
+        CloseConversationBox();
+    }
+
+    void ConversationDataChange(int eventNum, int pageNum, int questNum)
+	{
+        GameData.CurrentQuestNum = questNum;
+        GameData.CurrentEventNum = eventNum;
+        GameData.CurrentPageNum = pageNum;
     }
 }
