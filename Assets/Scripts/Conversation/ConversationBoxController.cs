@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ConversationBoxController : MonoBehaviour
 {
-    public GameObject ConversationBox; //TODO: 대화창 박스는 여기가 아니라 이벤트 메이커에서 생성/삭제할 것이므로 추후 지울 것
+    public GameObject ConversationCanvas;
+    public GameObject ConversationCam;
 
     public GameObject NameOfConversationBox;
 
@@ -127,7 +128,8 @@ public class ConversationBoxController : MonoBehaviour
 
     void CloseConversationBox()
     {
-        ConversationBox.SetActive(false);
+        ConversationCanvas.SetActive(false);
+        ConversationCam.SetActive(false);
     }
 
 

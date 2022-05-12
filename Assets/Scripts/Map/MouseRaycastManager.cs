@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class MouseRaycastManager: MonoBehaviour
 {
-	public Camera camera;
+	public Camera rayCam;
 	private RaycastHit hitObject;
 
 	public GameObject ConversationOpener;
@@ -25,7 +25,7 @@ public class MouseRaycastManager: MonoBehaviour
 
 	void MouseRayCheck()
 	{
-		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = rayCam.ScreenPointToRay(Input.mousePosition);
 
 		if (Physics.Raycast(ray, out hitObject))
 		{
@@ -41,7 +41,7 @@ public class MouseRaycastManager: MonoBehaviour
 	{
 		if (hitObject.collider.gameObject.tag == "NPC")
 		{
-			ConversationOpener.GetComponent<OpenConversationBox>().ActiveConversationBox();
+			ConversationOpener.GetComponent<OpenConversation>().ActiveConversation();
 		}
 	}
 
