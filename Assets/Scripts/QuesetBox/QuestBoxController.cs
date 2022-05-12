@@ -82,7 +82,10 @@ public class QuestBoxController : MonoBehaviour
 
     void ChangeQuestMapGraphic() 
     {
-        MapSection.GetComponent<Image>().sprite = QuestMaps[GameData.CurrentQuestNum-1];
+        if(GameData.CurrentQuestNum != 9)
+            MapSection.GetComponent<Image>().sprite = QuestMaps[GameData.CurrentQuestNum-1];
+        //else
+            //Áñ°Å¿î ºñ»ç »çÁø »ðÀÔ            
     }
 
     public void CloseQuestBox()

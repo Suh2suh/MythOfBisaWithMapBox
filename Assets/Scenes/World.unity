@@ -5640,6 +5640,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 10412187}
     m_Modifications:
+    - target: {fileID: 6626196542984856630, guid: 22e4c4c052b5e3a449eb337dd5a8a1ed, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 335.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626196542984856630, guid: 22e4c4c052b5e3a449eb337dd5a8a1ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -138.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626196543298595521, guid: 22e4c4c052b5e3a449eb337dd5a8a1ed, type: 3}
+      propertyPath: QuestMaps.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: aa603d7a2b1b8474b889f5e19dc456a0, type: 3}
+    - target: {fileID: 6626196543711163411, guid: 22e4c4c052b5e3a449eb337dd5a8a1ed, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 261.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626196543711163411, guid: 22e4c4c052b5e3a449eb337dd5a8a1ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 159.83
+      objectReference: {fileID: 0}
     - target: {fileID: 6626196543817301653, guid: 22e4c4c052b5e3a449eb337dd5a8a1ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -322,7 +322,7 @@ public class ConversationBoxController : MonoBehaviour
                 ConversationDataChange(9, 182, 8);
                 break;
             case 9:
-                IsNewQuest = false;
+                ConversationDataChange(10, 199, 9);
                 break;
         }
 
