@@ -7,6 +7,6 @@ public class StartBtnController : MonoBehaviour
 {
     public void moveToGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("World");
     }
 }
