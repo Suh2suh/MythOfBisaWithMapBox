@@ -295,6 +295,8 @@ public class ConversationBoxController : MonoBehaviour
 	{
         IsNewQuest = true;
 
+        //https://crmerry.tistory.com/21
+        //
         switch (GameData.CurrentEventNum)
 		{
             case 1:
